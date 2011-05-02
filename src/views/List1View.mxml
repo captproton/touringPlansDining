@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="Contacts">
+	<fx:Script>
+		<![CDATA[
+			import mx.collections.ArrayList;
+			import spark.events.IndexChangeEvent;
+
+			/**
+			 * Returns a string of real world sample contact list data with
+			 * letters in between each group of names.
+			 * 
+			 * @param includeLetters - set to true if you want single letter item's before names
+			 */
+			public function createContactListItems(includeLetters:Boolean = false):ArrayList {
+				var names:Array = [
+					"P",
+					"Magic Kingdom",
+					"Epcot",
+					"Hollywood Studios",
+					"Animal Kingdom",
+					"Resort Dining"];
+				
+				var output:Array = new Array();
+				for (var i:int = 0; i < names.length; i++)
+				{
+					if ((names[i] as String).length == 1){ // letter item
+						if (includeLetters)
+							output.push(names[i]);
+					} else { // name item
+						output.push(names[i]);
+					}
+				}
+				
+				return new ArrayList(output);
+			}
+		
+		protected function list_changeHandler(event:IndexChangeEvent):void
+		{
+			/* 
+			ViewNavigator.pushView is how you transition from one view to the next.
+			Along with the view class to transition to, you can specify arbitrary data
+			that will be passed as the "data" property of the new view. 
+			*/
+			navigator.pushView(details);
+		}
+		]]>
+
+
+	</fx:Script>
+	
+	<s:List id="target" dataProvider="{createContactListItems(true)}" 
+			typicalItem="Adam Case"
+			itemRenderer="renderers.ContactItemRenderer"
+			width="100%" height="100%" />
+	
+</s:View>

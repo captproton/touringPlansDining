@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:ViewNavigatorApplication xmlns:fx="http://ns.adobe.com/mxml/2009" 
+							xmlns:s="library://ns.adobe.com/flex/spark"
+							firstView="views.List1View">
+	<!-- 
+	The MobileApplication typically doesn't contain much content; most content lives in
+	the individual View components. However, you can add content to the ActionBar here
+	that will show up in every view. In this case, we want a Refresh button in every view
+	that calls the refresh() method defined on each view. 
+	-->
+	<s:actionContent>
+		<s:Button click="Object(navigator.activeView).refresh()"
+				  icon="@Embed(source='assets/refresh48x48.png')"/>
+	</s:actionContent>
+</s:ViewNavigatorApplication>

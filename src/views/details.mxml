@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:View xmlns:fx="http://ns.adobe.com/mxml/2009" 
+		xmlns:s="library://ns.adobe.com/flex/spark" title="details">
+	<fx:Declarations>
+		<!-- Place non-visual elements (e.g., services, value objects) here -->
+	</fx:Declarations>
+	<s:Label x="10" y="98" width="250" height="124" text="This is the details page for the eatery"/>
+	<s:Label x="10" y="10" text="Eatery Name"/>
+</s:View>
